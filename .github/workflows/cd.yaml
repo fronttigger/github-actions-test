@@ -1,6 +1,5 @@
 name: cd
-# release/** 에서 main으로 push 하는 것만
-#
+
 on:
   push:
     branches:
@@ -9,15 +8,13 @@ env:
   NODE_VERSION: '16.x'
 
 jobs:
-  canary:
+  cd:
     runs-on: ubuntu-latest
 
     steps:
       - uses: actions/checkout@v2
 
       - name: Use Node.js ${{ env.NODE_VERSION }}
-        shell: bash
-        run: echo "::debug::hello world"
         uses: actions/setup-node@v2
         with:
           node-version: ${{ env.NODE_VERSION }}
