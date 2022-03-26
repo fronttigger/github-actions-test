@@ -2,8 +2,6 @@ name: Release Tag
 
 on:
   push:
-    branches-ignore:
-      - '**'
     tags:
       - 'release/v**'
 
