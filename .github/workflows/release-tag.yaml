@@ -5,7 +5,7 @@ on:
     branches-ignore:
       - '**'
     tags:
-      - 'v**'
+      - 'release/v**'
 
 jobs:
   build:
