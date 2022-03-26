@@ -9,7 +9,7 @@ env:
 
 jobs:
   cd:
-    if: "contains(github.event.ref, 'release')"
+    if: "contains(github.event.ref, 'release/v0.0.2')"
     runs-on: ubuntu-latest
 
     steps:
