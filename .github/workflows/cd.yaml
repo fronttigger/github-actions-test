@@ -7,3 +7,19 @@ on:
       - 'main'
 env:
   NODE_VERSION: '16.x'
+
+jobs:
+  canary:
+    if: "!contains(github.event.head_commit.message, 'skip canary')"
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Use Node.js ${{ env.NODE_VERSION }}
+        shell: bash
+        run: echo "::debug::hello world"
+        uses: actions/setup-node@v2
+        with:
+          node-version: ${{ env.NODE_VERSION }}
