@@ -12,7 +12,6 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Echo github obj
       - uses: actions/checkout@v2
       - run: echo ${{ toJson(github) }}
 
