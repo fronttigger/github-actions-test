@@ -2,10 +2,8 @@ name: cd
 
 on:
   push:
-    branches-ignore:
-      - '**'
     tags:
-      - 'release/v**'
+      - 'v**'
 
 env:
   NODE_VERSION: '16.x'
