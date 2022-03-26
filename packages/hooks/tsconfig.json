@@ -1,0 +1,8 @@
+{
+  "extends": "../../tsconfig.jest.json",
+  "compilerOptions": {
+    "baseUrl": ".",
+    "declarationDir": "./lib"
+  },
+  "include": ["./src"]
+}

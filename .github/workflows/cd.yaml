@@ -1,0 +1,9 @@
+name: cd
+# release/** 에서 main으로 push 하는 것만
+#
+on:
+  push:
+    branches:
+      - 'main'
+env:
+  NODE_VERSION: '16.x'

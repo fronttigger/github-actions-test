@@ -1,0 +1,29 @@
+{
+  "name": "@copiest/utils",
+  "description": "common utils of copiest",
+  "version": "0.1.1",
+  "main": "./lib/index.js",
+  "module": "./lib/esm/index.js",
+  "sideEffects": false,
+  "private": false,
+  "scripts": {
+    "build": "rollup -c",
+    "build-declarations": "tsc",
+    "version": "npm version",
+    "test": "jest",
+    "deploy": "npm publish --access=public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/copiest/libraries-copiest.git"
+  },
+  "keywords": [
+    "utils",
+    "copiest"
+  ],
+  "dependencies": {},
+  "devDependencies": {},
+  "files": [
+    "lib"
+  ]
+}

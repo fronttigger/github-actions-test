@@ -1,0 +1,30 @@
+{
+  "name": "@copiest/hooks",
+  "description": "common hooks of copiest",
+  "version": "0.1.1",
+  "main": "./lib/index.js",
+  "module": "./lib/esm/index.js",
+  "sideEffects": false,
+  "private": false,
+  "scripts": {
+    "build": "rollup -c",
+    "build-declarations": "tsc",
+    "version": "npm version",
+    "test": "jest",
+    "deploy": "npm publish --access=public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/copiest/libraries-copiest.git"
+  },
+  "keywords": [
+    "hooks",
+    "copiest"
+  ],
+  "peerDependencies": {
+    "react": ">=16.8.0"
+  },
+  "files": [
+    "lib"
+  ]
+}
