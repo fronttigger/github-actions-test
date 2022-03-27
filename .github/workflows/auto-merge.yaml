@@ -3,7 +3,8 @@ name: Auto Merge
 on:
   push:
     branches:
-      - '**'
+      - 'main'
+
 env:
   NODE_VERSION: '16.x'
   GITHUB_NAME: ${{ github.event.head_commit.author.name }}
