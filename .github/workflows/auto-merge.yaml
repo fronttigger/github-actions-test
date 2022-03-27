@@ -2,7 +2,7 @@ name: Auto Merge
 
 on:
   workflow_run:
-    workflows: ["CD"]
+    workflows: ["deploy"]
     types:
       - completed
 
