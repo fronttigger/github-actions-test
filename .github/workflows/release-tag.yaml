@@ -2,8 +2,8 @@ name: Release Tag
 
 on:
   push:
-    tags:
-      - 'release/v**'
+    branches:
+      - 'main'
 
 jobs:
   build:
