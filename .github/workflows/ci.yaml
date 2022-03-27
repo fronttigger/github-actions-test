@@ -3,7 +3,11 @@ name: CI
 on:
   push:
     branches:
-      - 'main'
+      - 'feature/**'
+  pull_request:
+    branches:
+      - 'release/**'
+
 env:
   NODE_VERSION: '16.x'
 
