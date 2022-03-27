@@ -10,18 +10,14 @@ env:
   GITHUB_EMAIL: ${{ github.event.head_commit.author.email }}
 
 jobs:
-  ci:
+  auto-merge:
     runs-on: ubuntu-latest
 
     steps:
-      - run: echo name ${{ env.GITHUB_NAME }}
-      - run: echo email ${{ env.GITHUB_EMAIL }}
-      - name: Use Node.js ${{ env.NODE_VERSION }}
-        uses: actions/setup-node@v2
-        with:
-          node-version: ${{ env.NODE_VERSION }}
-
       - uses: actions/checkout@v2
-
-      - name: CI
-        run: npm ci
+      - run: |
+          git config user.name ${{ env.GITHUB_NAME }}
+          git config user.email ${{ env.GITHUB_EMAIL }}
+          git switch develop
+          git rebase main
+          g push origin develop
