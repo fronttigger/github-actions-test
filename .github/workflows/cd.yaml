@@ -9,22 +9,7 @@ env:
   NODE_VERSION: '16.x'
 
 jobs:
-  test:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-
-      - name: Use Node.js ${{ env.NODE_VERSION }}
-        uses: actions/setup-node@v2
-        with:
-          node-version: ${{ env.NODE_VERSION }}
-
-      - run: npm ci
-
-      - name: test
-        run: npm run test
-
-  build:
+  deploy:
     runs-on: ubuntu-latest
 
     steps:
@@ -39,20 +24,3 @@ jobs:
 
       - name: build
         run: npm run build:all
-
-  deploy:
-    runs-on: ubuntu-latest
-
-    steps:
-      - uses: actions/checkout@v2
-
-      - name: Use Node.js ${{ env.NODE_VERSION }}
-        uses: actions/setup-node@v2
-        with:
-          node-version: ${{ env.NODE_VERSION }}
-          registry-url: ${{ env.NPM_REGISTRY_URL }}
-
-      - run: npm ci
-
-      - name: release deploy
-        run: npm run deploy:all

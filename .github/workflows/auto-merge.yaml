@@ -1,0 +1,24 @@
+name: Auto Merge
+
+on:
+  push:
+    branches:
+      - 'main'
+
+env:
+  NODE_VERSION: '16.x'
+  GITHUB_NAME: ${{ github.event.head_commit.author.name }}
+  GITHUB_EMAIL: ${{ github.event.head_commit.author.email }}
+
+jobs:
+  auto-merge:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - run: |
+          git config user.name ${{ env.GITHUB_NAME }}
+          git config user.email ${{ env.GITHUB_EMAIL }}
+          git switch develop
+          git rebase main
+          g push origin develop
