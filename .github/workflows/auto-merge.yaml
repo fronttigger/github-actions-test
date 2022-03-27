@@ -6,13 +6,16 @@ on:
       - '**'
 env:
   NODE_VERSION: '16.x'
+  GITHUB_NAME: ${{ github.event.head_commit.author.name }}
+  GITHUB_EMAIL: ${{ github.event.head_commit.author.email }}
 
 jobs:
   ci:
     runs-on: ubuntu-latest
 
     steps:
-      - run: echo ${{ toJson(github) }}
+      - run: echo name ${{ env.GITHUB_NAME }}
+      - run: echo email ${{ env.GITHUB_EMAIL }}
       - name: Use Node.js ${{ env.NODE_VERSION }}
         uses: actions/setup-node@v2
         with:
