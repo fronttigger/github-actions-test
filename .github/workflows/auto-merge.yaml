@@ -1,9 +1,10 @@
 name: Auto Merge
 
 on:
-  push:
-    branches:
-      - '**'
+  workflow_run:
+    workflows: ["CD"]
+    types:
+      - completed
 
 env:
   NODE_VERSION: '16.x'
@@ -15,8 +16,9 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v2
-      - run: echo ${{ toJSON(github) }}
+      - uses: actions/checkout@v3
+          with:
+            ref: 'develop'
       - run: |
           git config user.name ${{ env.GITHUB_NAME }}
           git config user.email ${{ env.GITHUB_EMAIL }}
