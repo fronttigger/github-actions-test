@@ -8,17 +8,18 @@ on:
 
 env:
   NODE_VERSION: '16.x'
-  GITHUB_NAME: ${{ github.event.head_commit.author.name }}
-  GITHUB_EMAIL: ${{ github.event.head_commit.author.email }}
+  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
 jobs:
-  auto-merge:
+  sync-branch:
     runs-on: ubuntu-latest
-
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@master
+
+      - name: Merge development -> staging
+        uses: devmasx/merge-branch@master
         with:
-          ref: develop
-      - run: |
-          git rebase main
-          g push origin develop
+          type: now
+          from_branch: main
+          target_branch: develop
+          github_token: ${{ env.GITHUB_TOKEN }}
