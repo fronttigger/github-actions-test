@@ -6,8 +6,7 @@ on:
       - 'feature/**'
   pull_request:
     branches:
-      - 'release/**'
-      - 'release/v*.*.*'
+      - 'main'
 
 env:
   NODE_VERSION: '16.x'
