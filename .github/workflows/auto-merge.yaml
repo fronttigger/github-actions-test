@@ -1,0 +1,25 @@
+name: Auto Merge
+
+on:
+  workflow_run:
+    workflows: [CD]
+    types:
+      - completed
+
+env:
+  NODE_VERSION: '16.x'
+  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+jobs:
+  sync-branch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@master
+
+      - name: auto merge to develop
+        uses: devmasx/merge-branch@master
+        with:
+          type: now
+          from_branch: main
+          target_branch: develop
+          github_token: ${{ env.GITHUB_TOKEN }}
