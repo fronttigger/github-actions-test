@@ -8,7 +8,6 @@ on:
 
 env:
   NODE_VERSION: '16.x'
-  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
 jobs:
   sync-branch:
@@ -22,4 +21,4 @@ jobs:
           type: now
           from_branch: main
           target_branch: develop
-          github_token: ${{ env.GITHUB_TOKEN }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
