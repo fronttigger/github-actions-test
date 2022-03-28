@@ -16,7 +16,7 @@ jobs:
     steps:
       - uses: actions/checkout@master
 
-      - name: Merge development -> staging
+      - name: auto merge to develop
         uses: devmasx/merge-branch@master
         with:
           type: now
